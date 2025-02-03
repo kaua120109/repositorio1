@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+    <style>
+        *{
+            margin: 0%;
+            border: 0;
+            font-family: arial;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: #1E90FF;
+            padding: 10px;
+            margin-top: 0px;
+            text-align: left;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: arial;
+            max-width: 100%;
+        }
+        .container{
+            display: block;
+            background-color: #fff;
+            width: 90%;
+            box-shadow: 1px 1px 7px;
+            margin: 19px auto;
+            max-width: 90%;
+            max-height:90% ;
+            min-height: 0%;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        h1{
+            font-family: arial;
+            text-align: left;
+            padding-left: 10px;
+            font-size: 2.0rem;
+        }
+        h3{
+            font-family: arial;
+            text-align: left;
+            padding-left: 10px;
+            font-size: 1.4rem;
+        }
+        p{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align:justify;
+            padding: 10px;
+            font-size: 100%;
+        }
+        img{
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+        }
+        .container-1{
+            display: block;
+            background-color: #fff;
+            width: 90%;
+            box-shadow: 1px 1px 1px;
+            margin: 19px auto;
+            max-width: 90%;
+            max-height:90% ;
+            min-height: 0%;
+            padding: 10px;
+            border-radius: 0px;
+
+        }
+        nav{
+            text-align: right;
+            margin-top: 10px;
+            font-weight: normal;
+            font-family: arial;
+            font-size: 1.0rem;
+            margin-right: 2%;
+            word-spacing: 0px;
+        }
+        a{
+            
+        }
+        a:hover{
+            color: dimgray;
+        }
+        footer{
+            background-color: #1E90FF;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .texto-footer{
+            margin: 5px 0 ;
+            font-size: 1.0rem;
+        }
+        
+        
+
+           
+    </style>
+</head>
+<body>
+    <header>
+        <button class="menu-open" onclick="openMenu()" type="button">
+            <i class="#">
+                
+            </i>
+
+        </button>
+        <nav>
+            <a href="#">Saiba mais</a>
+        </nav>
+        <h3>FUNÇÕES</h3>
+    </header>
+    <div class="container">
+    <h1>Definindo Funções em Javascript</h1>
+
+    <p>Algo bem comum das linguagens de programação é o uso de funções, cada linguagem tem suas particularidades e maneiras específicas de como definir as mesmas. Nesse post vamos entender as diferentes definições e tipos de funções em JavaScript.
+
+        Atualmente até o momento em que esse post está sendo escrito, existem cinco tipos de definições, sendo:
+        
+        Functions declaration (Função de declaração)
+        Functions expression (Função de expressão)
+        Arrow Functions (Função de flecha)
+        Functions constructor (Função construtora)
+        Generator Functions (Função geradora)</p>
+        </div>
+
+        <div class="container">
+   
+        <h1>Functions declaration</h1>
+
+        <p>O jeito mais básico de definir funções em JavaScript é através da function declaration, toda função de declaração começa com a palavra reservada e obrigatória function, seguida pelo nome da função (também obrigatório) e uma lista de parâmetros (opcionais) separados por vírgula e encapsulados em parenteses (obrigatórios), o último passo é definir as chaves (obrigatórias) que será o corpo da função.</p>
+
+        <p>A estrutura seria mais ou menos assim:</p>
+
+        <img src="Untitled_Diagram_wfmnwk.png" alt="imagem de exemplo">
+
+   
+    <p>Essa estrutura é a mais simples, porém, obrigatória para as functions declaration. Como mencionado anteriormente, também podemos definir parâmetros opcionais separados por vírgula:</p>
+
+    <img src="Untitled_Diagram_1_vz1jbx.png" alt="imagem de exemplo">
+
+    
+
+    <p>Dentro de uma função de declaração, também podemos ter outras funções, que só irão ser visíveis dentro do bloco (chaves) onde a mesma foi declarada.</p>
+
+    <p>Vamos ver alguns exemplos:</p>
+
+    <div class="container-1">
+
+   <p> <strong></strong>function ola() {</p>
+        <p>console.log('Olá')</p>
+    <p> }</p>
+    <p>ola()</p>
+    
+    <p>function ola() {</p>
+        <p>function mensagem() {</p>
+           <p> return 'Olá'</p>
+       <p> }</p>
+        <p>console.log(mensagem())</p>
+    <p> }</p>
+    <p>ola()</p>
+    
+    <p>function ola() {</p>
+        <p>function mensagem() {</p>
+            <p>return 'Olá'</p>
+        <p> }</p>
+        <p>console.log(mensagem())</p>
+    <p> }
+    <p>ola()</p>
+    
+    <p>console.log(mensagem()) <strong>// a função mensagem não irá existir nesse trecho de código, ela somente existe dentro da função ola</strong></p>
+        
+    
+    <p>function ola(nome) {</p>
+        <p>console.log('Olá', nome)</p>
+    <p> }</p>
+    <p>ola('Matheus') </p>
+</div>
+<p>Dado os exemplos acima, vamos destacar algumas curiosidades:</p>
+
+<p><strong>1.</strong> Em JavaScript podemos declarar funções dentro de funções.</p>
+<p><strong>2.</strong> Uma função declarada dentro de outra, apenas irá viver durante o escopo da função pai, ou seja, a função <strong>mensagem</strong> apenas existe no escopo/bloco da função <strong>ola.</strong></p>
+<p><strong>3.</strong> Para invocar uma função utilizamos o seu nome seguido por parenteses <strong>()</strong>.</p>
+<p><strong>4.</strong> Para alimentar algum parâmetro, adicionamos o valor dentro dos parenteses <strong>('Matheus')</strong>, onde a ordem dos parâmetros irá influenciar, ou seja, se uma função recebe dois parâmetros: <strong>function ola(nome, sobrenome)</strong>, 
+    ao chamá-la precisamos tomar cuidado com a ordem dos mesmos: <strong>ola('Matheus', 'Castiglioni')</strong> é diferente de <strong>ola('Castiglioni', 'Matheus')</strong>.</p>
+
+</div>
+
+<div class="container">
+
+    <h1>Functions expression</h1>
+
+    <p>Como mencionado anteriormente, as expression e declaration são muito parecidas, a diferença é que uma função de expressão pode ser lidada como uma qualquer expressão em JavaScript, por exemplo:</p>
+    <p><strong>const nome = 'Matheus'</strong></p>
+    <p>Nesse exemplo, estamos criando uma expressão onde definimos uma variável chamada <strong>nome</strong> atribuímos uma <strong>String</strong> para ela.</p>
+
+    <p>Com as funções de expressão, podemos fazer algo muito semelhante:</p>
+
+<div class="container-1">
+    <p>const ola = function() {</p>
+        <p>console.log('Olá')</p>
+   <p> }</p>
+    <p>ola()</p>
+    </div>
+
+
+    <p>Repare que é bem parecido com as funções de declaração, uma das sútis diferenças é que ela está sendo atribuída para uma variável, onde não definimos o nome da função e sim o nome da variável que irá referenciar a mesma.
+         Tornando a estrutura mais ou menos assim:</p>
+
+         <img src="Untitled_Diagram_2_ylxv7e copy.png" alt="imagm de exemplo">
+
+         <p>Mas, você deve estar se perguntando:</p>
+         <p><strong>Porque eu iria querer atribuir uma função à uma variável?</strong></p>
+         <p>Atribuir uma função à uma variável pode ser muito útil, por exemplo: Assim podemos definir a função exatamente onde ela precisa ser chamada, ou seja, definimos a função apenas onde precisamos dela, isso em alguns momentos pode tornar nosso código mais simples de entender.</p>
+
+</div>
+<div class="container">
+
+    <h1>Saiba mais</h1>
+
+    <p>Uma expressão em JavaScript onde definimos variáveis, também pode ser chamada de assignment expression.</p>
+
+</div>
+
+<div class="container">
+    
+    <h1>Arrow Functions</h1>
+
+    <p>Como usamos bastante funções, nada melhor do que criar atalhos e sintaxes menos verbosas, não é? Pois é, um dos motivos da criação das funções de flecha é facilitar a criação e utilização de funções em JavaScript, ou seja, elas permitem a criação de funções de maneira resumida.</p>
+    <p>Em outras palavras, as arrow functions são simplificações para as functions expression:</p>
+    <p>Imagine um exemplo onde temos a seguinte função de expressão:</p>
+
+<div class="container-1"
+    <p>const numeroAleatorio = function() { </p>
+        <p> return Math.random()</p>
+    <p> }</p> 
+    </div>
+
+    <p>Tivemos que escrever bastante coisa, para apenas criar uma função que devolve um número aleatório. Agora vamos transformar essa função de expressão em uma função de flecha.</p>
+
+<div class="container-1">
+    <p>const numeroAleatorio = () => {</p>
+        <p>return Math.random()</p>
+     }</p>
+    </div>
+
+    <p>Até então nada diferente, apenas removemos a palavra reservada <strong>function</strong> e adicionamos uma seta (sinal de <strong>=</strong> seguido por <strong>></strong>).</p>
+    <p>Vamos começar a fazer algumas melhorias e refatorações, o primeiro passo será no <strong>return</strong>, repare que a função possuí apenas uma linha como conteúdo, será que não podemos deixar o retorno implicito? Sim:</p>
+
+<div class="container-1">
+    <p>const numeroAleatorio = () => <strong>Math</strong>.random()</p>
+</div>
+
+    <p>Repare que não só removemos a palavra reservada return, mas, como também as chaves, ou seja:</p>
+    <p>*Caso o corpo da arrow function tenha apenas uma linha, podemos omitir a declaração das chaves</p>
+    <p>*Seguindo o principio que o corpo tem apenas um linha, também não precisamos utilizar o <strong>return</strong>, podemos removê-lo, pois a primeira linha será executada e retornada automaticamente.</p>
+
+    <p>Show, o que mais podemos fazer? Vamos imaginar uma segunda função:</p>
+
+<div class="container-1"> 
+    <p>function nomeCompleto(nome, sobrenome) {</p>
+        <p>return `${nome} ${sobrenome}`</p>
+    <p>} </p>
+</div>
+
+    <p>Como vimos anteriormente, quando trata-se de apenas uma linha e já precisamos fazer o retorno, podemos omitir as chaves e a palavra <strong>return</strong>:</p>
+    
+<div class="container-1">
+    <p>const nomeCompleto = (nome, sobrenome) => `${nome} ${sobrenome}`</p>
+</div>
+
+    <p>Agora, imagine que não precisamos mais do sobrenome, vamos apenas criar uma função para dizer <strong>Olá, NOME</strong>:</p>
+   
+<div class="container-1">
+        <p>function ola(nome) {</p>
+            <p>return `Olá ${nome}`</p>
+        <p> }</p>
+    </div>
+
+        <p>Seguindo o que já sabemos:</p>
+    <div class="container-1">
+        <p><strong>const ola = (nome) => `Olá ${nome}`</strong></p>
+    </div>
+
+        <p>Mas, quando uma arrow function possuí apenas um parâmetro, também podemos omitir os parenteses, ficando:</p>
+    
+    <div class="container-1">
+        <p><strong>const ola = nome => `Olá ${nome}`</strong></p>
+    </div>
+
+        <p>Sendo assim, podemos definir uma arrow function:</p>
+        <img src="Untitled_Diagram_brmdbv.png" alt="imagem de exemplo">
+
+</div>
+    
+<div class="container">
+    <h1>Functions constructor</h1>
+
+    <p>As funções construtoras são declaradas e definidas como qualquer outra expression ou declaration, o jeito de se usar é o mesmo, a diferença está mais no caso de uso e o que ela retorna.</p>
+    <p>Uma pequena observação é que normalmente o nome de funções construtoras começa com a primeira letra maiúscula, por exemplo:</p>
+
+<div class="container-1">
+    <p>function Pessoa() {}</p>
+</div>
+     <p>Nesse exemplo, estamos criando uma função construtora que irá criar um objeto Pessoa.</p>
+     <p>A principal diferença entre a função construtora está na maneira como ela é invocada, enquanto as demais apenas precisam ser nomeadas e utilizar os parenteses:</p>
+
+    <div class="container-1">
+     <p>function ola() {}<br>
+ola()<br>
+
+const ola = function() {}</><br>
+    ola()<br></p>
+</div>
+
+    <p>As funções construtoras precisam ser invocadas com a palavra reservada <strong>new</strong>:</p>
+    
+<div class="container-1">
+    <p>const p = <strong>new</strong> Pessoa()</p>
+</div>
+    <p>Utilizar funções construtoras pode ser uma funcionalidade muito útil, pois, podemos criar objetos de uma maneira simplificada:</p>
+    <div class="container-1">
+    <p>function Pessoa(nome) {<br>
+        this.nome = nome <br>
+    } <br>
+    const p = new Pessoa('Matheus') // { nome: 'Matheus' } <br></p>
+</div>
+
+    <p>Veja que estamos criando um novo objeto <strong>Pessoa</strong> com a propriedade <strong>nome</strong>.</p>
+
+    <p>Quando utilizamos a palavra reservada <strong>new</strong> para invocar uma função, o JavaScript por baixo dos panos cria automaticamente um novo objeto para nós,
+         esse objeto pode ser referenciado através do <strong>this</strong>.</p>
+
+        <p>uando realizamos <strong>this.nome = nome</strong>, estamos adicionando uma nova propriedade chamada <strong>nome</strong> para o objeto recém criado, onde o valor da propriedade
+             será o valor informado no parâmetro da função. Seria algo similar à:</p>
+<div class="container-1">
+             p = {} <br>
+              .nome = 'Matheus'</p>
+</div>
+
+    <p>E por fim, funções construtoras por padrão retornam esse objeto recém criado de maneira implícita.</p>
+
+</div>
+
+<div class="container">
+    <h1>Generator Functions</h1>
+
+    <p>Por último, não menos importante, vamos falar das funções geradoras, a definição e declaração da mesma é muito semelhante as funções de expressão e 
+        declaração, uma pequena diferença está na adição de um <strong>*</strong>
+        na palavra reservada <strong>function</strong>, ou seja, <strong>function*</strong>:</p>
+
+<div class="container-1">
+    <p>function* ola(p1, p2) {}</p>
+</div>
+ <p>As demais regras se aplicam para a mesma, onde os parâmetros são opcionais e separados por vírgula e o corpo da função fica dentro das chaves.</p>
+
+ <p>Mas, porque utilizá-las? Diferente de funções normais em JavaScript, ou seja:</p>
+
+ <div class="container-1">
+ <p>function ola() {</p>
+    <p>console.log('Olá')</p> 
+    <p>console.log('Matheus')</p> 
+    <p>console.log('Castiglioni')</p> 
+    <p>}</p> 
+<p>ola()</p>
+</div>
+
+<p>A execução dessa função não pode ser controlada, em outras palavras, a função será executada e processada de maneira completa, nós não temos nenhum controle do tipo:</p>
+
+<p><strong>1.</strong>Execute o primeiro log</p>
+<p><strong>2.</strong>Pause</p>
+<p><strong>3.</strong>Faça alguma </p>
+<p><strong>4.</strong>Execute o segundo log</p>
+<p><strong>5.</strong>Pause</p>
+<p><strong>6.</strong>Faça alguma coisa</p>
+<p><strong>7.</strong>etc…</p>
+
+<p>O resultado da execução seria:</p>
+<div class="container-1">
+<p><strong>ola()</strong></p>
+<p>// 'Olá'</p>
+<p>// 'Matheus'</p>
+<p>// 'Castiglioni'</p>
+</div>
+
+<p>Porém, as funções geradoras podem ser interrompidas durante a invocação e posteriormente podemos dar continuidade em sua execução, eu sei que deve ter ficado um pouco complexo,
+     mas, calma que iremos exemplificar a explicação.</p>
+
+     <div class="container-1">
+        function* ola() {<br><br>
+        yield 'Olá'<br><br>
+        yield 'Matheus'<br><br>
+        yield 'Castiglioni'<br><br>
+    }
+</div>
+
+<p>Repare que temos uma nova palavra reservada, a <strong>yield</strong>, essa palavra indica quais são os passos e onde a função deve ir parando sua execução, ou seja, cada <strong>yield</strong> é um ponto de interrupção da função.</p>
+
+    <p>Vamos executar nossa função e atribuir seu retorno para uma variável:</p>
+
+    <div class="container-1">
+        const nome = ola() <br><br>
+console.log(nome)
+    </div>
+
+    <p>O valor da variável <strong>nome</strong> será um objeto do tipo <strong>Generator</strong>, que nada mais é do que um <strong>Iterator</strong>. Mas, o que isso quer dizer? Um <strong>Iterator</strong> pode ser iterado de uma maneira diferente a <strong>array</strong>, ele possuí uma função <strong>next</strong> que irá passar por cada ponto de parada:</p>
+
+    <div class="container-1">
+    const <strong>nome</strong> = ola() <br><br>
+    const <strong>n1</strong> = <strong>nome</strong>.next() <br><br>
+        <strong>console</strong>.log <strong>(n1)</strong>
+</div>
+
+    <p>A função next vai retornar um objeto com duas propriedades:</p>
+
+    <p><strong>*</strong><strong>value</strong>: O valor informado para cada <strong>yield</strong>. </p>
+
+    <p><strong>*</strong><strong>one</strong>: Um booleano que vai indicar se o <strong>Iterator</strong> percorreu todos os pontos de interropção, dessa maneira, quando o valor for <strong>true</strong> a iteração terminou.</p>
+
+    <p>Como nossa função possuí três pontos de parada, ou seja, três <strong>yield</strong>, podemos chamar a função <strong>next</strong> três vezes o obter o valor de cada <strong>yield</strong>:</p>
+
+    <div class="container-1">
+   <p>// n = next </p>
+<p><strong>const nome = ola()</strong></p>
+<p><strong>console.log(n1.value)</strong> // 'Olá'</p><br>
+<p><strong>console.log(n1.done)</strong> // false</p> <br>
+<p><strong>const n2 = nome.next()</strong></p>
+<p><strong>console.log(n2.value)</strong> // 'Matheus'</p> <br>
+<p><strong>console.log(n2.done)</strong>// false</p>  <br>
+<p><strong>const n3 = nome.next()</strong></p>
+<p><strong>console.log(n3.value)</strong> // 'Castiglioni'</p> <br>
+<p><strong>console.log(n3.done)</strong>// false</p>  <br>
+<p><strong>const n4 = nome.next()</strong>
+<p><strong>console.log(n4.value)</strong> // undefined</p> <br>
+<p><strong>console.log(n4.done)</strong> // true</p>
+</div>
+
+<p>Veja que percorremos todos os passos da função de maneira manual, ou seja, nos estamos controlando quando a mesma deve ser executada ou não.</p>
+
+<p>Na quarta chamada da função <strong>next</strong> não havia mais pontos de parada, o <strong>value</strong> então é <strong>undefined</strong> e por fim o done está marcado como <strong>true</strong>.</p>
+
+<p>Entre cada declaração do <strong>yield</strong> podemos adicionar códigos JavaScript que serão processados normalmente:</p>
+
+<div class="container-1">
+    function* inc() { <br><br>
+        let n = 0 <br><br>
+        console.log('Estou incrementando uma vez') <br><br>
+        n++ <br><br>
+        yield n <br><br>
+        console.log('Estou incrementando pela segunda vez') <br><br>
+        n++ <br><br>
+        yield n <br>
+    <p>}</p>  
+
+</div>
+
+<p>Logo, sua execução pode ser feita:</p>
+<div class="container-1">
+    <p><strong>const interador = inc()</strong></p>
+<p>// 'Estou incrementando uma vez'</p>
+<p><strong>console.log(n1.value)</strong> // 1</p>
+<p><strong>console.log(n1.done)</strong> // false</p>
+<p><strong>const n2 = interador.next()</strong></p>
+<p>// 'Estou incrementando pela segunda vez'</p>
+<p><strong>console.log(n2.value)</strong> // 2</p>
+<p><strong>const n3 = interador.next()</strong></p>
+<p><strong>console.log(n3.value)</strong> // undefined</p>
+<p><strong>console.log(n3.done)</strong> // true</p>
+
+</div>
+
+<p>Veja que os logs dentro da função foram executadas, a variável foi incrementada e cada yield também foi chamado. Dessa maneira, temos controle total sobre quando e quais passos devem ser executados em nossa função geradora.</p>
+<p>Também podemos atribuir as funções geradores para variáveis:</p>
+<div class="container-1">
+<p>const ola = function* () {}</p>
+</div>
+
+</div>
+
+<div class="container">
+    <h1>Saiba mais</h1>
+
+    <p>Caso você não precise controlar o fluxo de execução e queira chamar todos os yield de maneira automática, pode utilizar o for of (utilizado para percorrer iteradores):</p>
+    <div class="container-1">
+        <p>function* ola() { <br><br>
+            yield 'Olá' <br>
+            yield 'Matheus' <br>
+            yield 'Castiglioni' <br>
+        } <br><br>
+        
+        for (const n of ola()) { <br>
+            console.log(n) <br>
+        }</p>
+
+    </div>
+    <p>Repare que não precisamos nos preocuper em chamar o <strong>next</strong>, verificar se tem <strong>value</strong> e o <strong>done</strong> não está <strong>true</strong>, o próprio for of faz tudo isso para a gente.</p>
+
+</div>
+<footer>
+    <p class="texto-footer">CONTATOS:</p>
+    <p class="texto-footer">G-Mail:</p>
+    <p class="texto-footer">WhatsApp:</p>
+    <p class="texto-direito">© 2025 Funções. Todos os direitos reservados.</p>
+
+</footer>
+   
+</body>
+</html>
